@@ -1,5 +1,6 @@
 package com.icaropaixao.cursomodelagem.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ public class Estado implements Serializable {
     private Integer id;
 
     private String nome;
+
 
     @OneToMany(mappedBy = "estado") // nome do atributo na outra classe
     private List<Cidade> cidades = new ArrayList<Cidade>();

@@ -1,5 +1,6 @@
 package com.icaropaixao.cursomodelagem.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.icaropaixao.cursomodelagem.domain.enums.TipoCliente;
 import jakarta.persistence.*;
 import org.springframework.orm.jpa.persistenceunit.SmartPersistenceUnitInfo;
@@ -21,6 +22,7 @@ public class Cliente implements Serializable {
 
     private Integer tipo;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
 
