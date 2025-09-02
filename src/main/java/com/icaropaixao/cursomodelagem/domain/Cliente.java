@@ -31,6 +31,9 @@ public class Cliente implements Serializable {
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
+    @OneToMany
+    private List<Pedido> pedidos = new ArrayList<>();
+
     // constructors
     public Cliente() {}
 
@@ -44,6 +47,20 @@ public class Cliente implements Serializable {
     }
 
     // getters and setters
+
+
+    public void setTipo(Integer tipo) {
+        this.tipo = tipo;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
     public Integer getId() {
         return id;
     }
