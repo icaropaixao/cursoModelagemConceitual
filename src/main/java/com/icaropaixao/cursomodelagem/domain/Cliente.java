@@ -1,9 +1,9 @@
 package com.icaropaixao.cursomodelagem.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.icaropaixao.cursomodelagem.domain.enums.TipoCliente;
 import jakarta.persistence.*;
-import org.springframework.orm.jpa.persistenceunit.SmartPersistenceUnitInfo;
 
 import java.io.Serializable;
 import java.util.*;
@@ -31,6 +31,7 @@ public class Cliente implements Serializable {
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
+    @JsonBackReference
     @OneToMany
     private List<Pedido> pedidos = new ArrayList<>();
 

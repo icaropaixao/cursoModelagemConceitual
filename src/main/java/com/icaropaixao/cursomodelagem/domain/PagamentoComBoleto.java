@@ -1,5 +1,6 @@
 package com.icaropaixao.cursomodelagem.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.icaropaixao.cursomodelagem.domain.enums.EstadoPagamento;
 import jakarta.persistence.Entity;
 
@@ -8,7 +9,11 @@ import java.util.Date;
 @Entity
 public class PagamentoComBoleto extends Pagamento{
 
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataPagamento;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataVencimento;
 
     public PagamentoComBoleto() {}

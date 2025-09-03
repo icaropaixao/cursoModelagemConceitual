@@ -1,6 +1,7 @@
 package com.icaropaixao.cursomodelagem.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 
@@ -13,6 +14,7 @@ public class ItemPedido implements Serializable {
 
     // @EmbeddedId indica que a chave primária é composta
     // A chave está definida na classe ItemPedidoPK (pedido + produto)
+    @JsonIgnore
     @EmbeddedId
     private ItemPedidoPK id = new ItemPedidoPK();
 
@@ -31,9 +33,12 @@ public class ItemPedido implements Serializable {
         this.preco = preco;
     }
 
+    @JsonIgnore
     public Pedido getPedido() {
         return id.getPedido();
     }
+
+
     public void setPedido(Pedido pedido) {
         id.setPedido(pedido);
     }

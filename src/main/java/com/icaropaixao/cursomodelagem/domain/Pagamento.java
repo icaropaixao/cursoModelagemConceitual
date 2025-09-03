@@ -1,5 +1,6 @@
 package com.icaropaixao.cursomodelagem.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.icaropaixao.cursomodelagem.domain.enums.EstadoPagamento;
 import jakarta.persistence.*;
 
@@ -15,6 +16,7 @@ public abstract class Pagamento implements Serializable {
     private Integer id;
     private Integer estado;
 
+    @JsonBackReference
     @JoinColumn(name="pedido_id")
     @OneToOne
     @MapsId
